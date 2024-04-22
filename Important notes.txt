@@ -1,0 +1,66 @@
+Multiplication Result is 0: If the dot product of two vectors is 0, it means that the angle between the vectors is 90 degrees (or π/2 radians). In the context of vector similarity, this indicates that the vectors are orthogonal (perpendicular) to each other. Orthogonal vectors are not similar in the sense that they do not share any directional similarity. They are independent of each other, meaning they do not point in the same direction or opposite directions.
+
+
+Multiplication Result is Something Other Than 0: If the dot product of two vectors is not 0, it means that the angle between the vectors is not 90 degrees. In this case, the vectors are similar in the sense that they share some directional similarity. 
+The closer the dot product is to the product of the magnitudes of the two vectors (which is the maximum possible value of the dot product), the more similar the vectors are. 
+This similarity is based on the angle between the vectors: the smaller the angle, the more similar the vectors are.
+
+This way, you can view the dot product as a loose measurement of similarity between the vectors. 
+Every time the multiplication result is 0, the final dot product will have a lower result.
+
+Since this is your very first neural network, you’ll keep things straightforward and build a network with only two layers. 
+So far, you’ve seen that the only two operations used inside the neural network were the dot product and a sum. Both are linear operations.
+
+If you add more layers but keep using only linear operations, then adding more layers would have no effect because each layer will always have some correlation with the input of the previous layer. 
+This implies that, for a network with multiple layers, there would always be a network with fewer layers that predicts the same results.
+
+What you want is to find an operation that makes the middle layers sometimes correlate with an input and sometimes not correlate.
+
+You can achieve this behavior by using nonlinear functions. 
+These nonlinear functions are called activation functions. 
+There are many types of activation functions. The ReLU (rectified linear unit), for example, is a function that converts all negative numbers to zero. This means that the network can “turn off” a weight if it’s negative, adding nonlinearity.
+
+The network you’re building will use the sigmoid activation function. You’ll use it in the last layer, layer_2. 
+The only two possible outputs in the dataset are 0 and 1, and the sigmoid function limits the output to a range between 0 and 1.
+
+The e is a mathematical constant called Euler’s number, and you can use np.exp(x) to calculate eˣ
+
+Probability functions give you the probability of occurrence for possible outcomes of an event. 
+The only two possible outputs of the dataset are 0 and 1, and the Bernoulli distribution is a distribution that has two possible outcomes as well. The sigmoid function is a good choice if your problem follows the Bernoulli distribution, so that’s why you’re using it in the last layer of your neural network.
+
+Since the function limits the output to a range of 0 to 1, you’ll use it to predict probabilities. If the output is greater than 0.5, then you’ll say the prediction is 1. If it’s below 0.5, then you’ll say the prediction is 0. 
+
+The network can make a mistake by outputting a value that’s higher or lower than the correct value. 
+Since the MSE is the squared difference between the prediction and the correct result, with this metric you’ll always end up with a positive value.
+
+When it comes to your neural network, the derivative will tell you the direction you should take to update the weights variable. If it’s a positive number, then you predicted too high, and you need to decrease the weights. If it’s a negative number, then you predicted too low, and you need to increase the weights.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
